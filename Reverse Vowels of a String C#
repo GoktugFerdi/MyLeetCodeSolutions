@@ -1,0 +1,22 @@
+public class Solution {
+    public string ReverseVowels(string s) {
+        
+        char[] vowels = {'a','e','i','o','u','A','E','I','O','U'};
+        List<char> vowelList = new List<char>();
+        char[] result = s.ToCharArray();
+        int index = 0;
+        
+        foreach (char c in s){
+            if(vowels.Contains(c)){
+                vowelList.Add(c);
+            }
+        }
+        vowelList.Reverse();
+
+        for(int i=0; i< result.Length; i++){
+            if(vowels.Contains(result[i])){
+                result[i] = vowelList[index++];
+            }
+        }
+
+        return new string(result);
